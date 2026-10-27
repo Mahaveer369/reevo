@@ -1,0 +1,4 @@
+kroA100 aco_baseline seed=0 cost=21346.000 elapsed=217.75s reported_runtime=217.51s gap=0.3007236162014848
+kroA100 aco_baseline seed=1 cost=21363.000 elapsed=203.63s reported_runtime=203.63s gap=0.38060332675500425
+kroA100 aco_llm seed=0 cost=21282.000 elapsed=208.91s reported_runtime=208.90s gap=0.0
+kroA100 aco_llm seed=1 cost=21343.000 elapsed=206.03s reported_runtime=206.03s gap=0.28662719669204023

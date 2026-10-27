@@ -1,0 +1,8 @@
+berlin52 aco_baseline seed=0 cost=7542.000 elapsed=318.29s reported_runtime=318.05s gap=0.0
+berlin52 aco_baseline seed=1 cost=7542.000 elapsed=321.30s reported_runtime=321.29s gap=0.0
+berlin52 aco_llm seed=0 cost=7542.000 elapsed=294.96s reported_runtime=294.96s gap=0.0
+berlin52 aco_llm seed=1 cost=7542.000 elapsed=291.45s reported_runtime=291.44s gap=0.0
+pr76 aco_baseline seed=0 cost=108159.000 elapsed=1055.30s reported_runtime=1055.30s gap=0.0
+pr76 aco_baseline seed=1 cost=108159.000 elapsed=1098.86s reported_runtime=1098.86s gap=0.0
+pr76 aco_llm seed=0 cost=108159.000 elapsed=1089.62s reported_runtime=1089.62s gap=0.0
+pr76 aco_llm seed=1 cost=108159.000 elapsed=1127.38s reported_runtime=1127.37s gap=0.0

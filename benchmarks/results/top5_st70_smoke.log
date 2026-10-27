@@ -1,0 +1,4 @@
+st70 aco_baseline seed=0 cost=675.000 elapsed=79.15s reported_runtime=78.90s gap=None
+st70 aco_baseline seed=1 cost=680.000 elapsed=75.06s reported_runtime=75.06s gap=None
+st70 aco_llm seed=0 cost=681.000 elapsed=69.65s reported_runtime=69.65s gap=None
+st70 aco_llm seed=1 cost=680.000 elapsed=74.30s reported_runtime=74.30s gap=None

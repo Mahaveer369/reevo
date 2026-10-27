@@ -1,0 +1,2 @@
+local_search=False cost=8792.000 runtime=1.58s
+local_search=True cost=7542.000 runtime=92.01s

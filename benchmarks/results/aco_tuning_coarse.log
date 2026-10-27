@@ -1,0 +1,251 @@
+====================================================================================================
+ACO HYPERPARAMETER TUNING
+====================================================================================================
+NOTE: 'decay' is the parameter used by the current ACO code as pheromone retention: pheromone *= decay.
+val20: 64 total instances; using indices [2, 12, 36, 47, 54]
+val50: 64 total instances; using indices [8, 12, 18, 58, 61]
+val100: 64 total instances; using indices [4, 19, 36, 53, 62]
+
+Coarse grid size: 108 configurations
+Methods: aco_llm only
+Seeds: [0, 1, 2]
+Iterations: 100
+Device: cpu
+
+[001/108] a=0.5,b=0.5,d=0.7,ants=20
+    completed in 24.757s
+[002/108] a=0.5,b=0.5,d=0.7,ants=30
+    completed in 41.623s
+[003/108] a=0.5,b=0.5,d=0.7,ants=50
+    completed in 63.944s
+[004/108] a=0.5,b=0.5,d=0.8,ants=20
+    completed in 24.283s
+[005/108] a=0.5,b=0.5,d=0.8,ants=30
+    completed in 41.541s
+[006/108] a=0.5,b=0.5,d=0.8,ants=50
+    completed in 62.944s
+[007/108] a=0.5,b=0.5,d=0.9,ants=20
+    completed in 24.255s
+[008/108] a=0.5,b=0.5,d=0.9,ants=30
+    completed in 41.737s
+[009/108] a=0.5,b=0.5,d=0.9,ants=50
+    completed in 62.913s
+[010/108] a=0.5,b=0.5,d=0.95,ants=20
+    completed in 24.859s
+[011/108] a=0.5,b=0.5,d=0.95,ants=30
+    completed in 42.907s
+[012/108] a=0.5,b=0.5,d=0.95,ants=50
+    completed in 63.070s
+[013/108] a=0.5,b=1,d=0.7,ants=20
+    completed in 24.590s
+[014/108] a=0.5,b=1,d=0.7,ants=30
+    completed in 40.696s
+[015/108] a=0.5,b=1,d=0.7,ants=50
+    completed in 61.791s
+[016/108] a=0.5,b=1,d=0.8,ants=20
+    completed in 24.481s
+[017/108] a=0.5,b=1,d=0.8,ants=30
+    completed in 40.919s
+[018/108] a=0.5,b=1,d=0.8,ants=50
+    completed in 61.707s
+[019/108] a=0.5,b=1,d=0.9,ants=20
+    completed in 24.470s
+[020/108] a=0.5,b=1,d=0.9,ants=30
+    completed in 40.889s
+[021/108] a=0.5,b=1,d=0.9,ants=50
+    completed in 61.271s
+[022/108] a=0.5,b=1,d=0.95,ants=20
+    completed in 24.502s
+[023/108] a=0.5,b=1,d=0.95,ants=30
+    completed in 40.662s
+[024/108] a=0.5,b=1,d=0.95,ants=50
+    completed in 61.346s
+[025/108] a=0.5,b=2,d=0.7,ants=20
+    completed in 24.483s
+[026/108] a=0.5,b=2,d=0.7,ants=30
+    completed in 40.502s
+[027/108] a=0.5,b=2,d=0.7,ants=50
+    completed in 61.344s
+[028/108] a=0.5,b=2,d=0.8,ants=20
+    completed in 24.585s
+[029/108] a=0.5,b=2,d=0.8,ants=30
+    completed in 40.535s
+[030/108] a=0.5,b=2,d=0.8,ants=50
+    completed in 61.854s
+[031/108] a=0.5,b=2,d=0.9,ants=20
+    completed in 25.030s
+[032/108] a=0.5,b=2,d=0.9,ants=30
+    completed in 40.550s
+[033/108] a=0.5,b=2,d=0.9,ants=50
+    completed in 61.681s
+[034/108] a=0.5,b=2,d=0.95,ants=20
+    completed in 24.601s
+[035/108] a=0.5,b=2,d=0.95,ants=30
+    completed in 40.613s
+[036/108] a=0.5,b=2,d=0.95,ants=50
+    completed in 61.370s
+[037/108] a=1,b=0.5,d=0.7,ants=20
+    completed in 24.570s
+[038/108] a=1,b=0.5,d=0.7,ants=30
+    completed in 40.723s
+[039/108] a=1,b=0.5,d=0.7,ants=50
+    completed in 61.470s
+[040/108] a=1,b=0.5,d=0.8,ants=20
+    completed in 24.552s
+[041/108] a=1,b=0.5,d=0.8,ants=30
+    completed in 40.804s
+[042/108] a=1,b=0.5,d=0.8,ants=50
+    completed in 61.406s
+[043/108] a=1,b=0.5,d=0.9,ants=20
+    completed in 24.505s
+[044/108] a=1,b=0.5,d=0.9,ants=30
+    completed in 40.630s
+[045/108] a=1,b=0.5,d=0.9,ants=50
+    completed in 61.325s
+[046/108] a=1,b=0.5,d=0.95,ants=20
+    completed in 24.534s
+[047/108] a=1,b=0.5,d=0.95,ants=30
+    completed in 40.702s
+[048/108] a=1,b=0.5,d=0.95,ants=50
+    completed in 61.651s
+[049/108] a=1,b=1,d=0.7,ants=20
+    completed in 22.987s
+[050/108] a=1,b=1,d=0.7,ants=30
+    completed in 28.335s
+[051/108] a=1,b=1,d=0.7,ants=50
+    completed in 53.876s
+[052/108] a=1,b=1,d=0.8,ants=20
+    completed in 23.024s
+[053/108] a=1,b=1,d=0.8,ants=30
+    completed in 28.308s
+[054/108] a=1,b=1,d=0.8,ants=50
+    completed in 53.659s
+[055/108] a=1,b=1,d=0.9,ants=20
+    completed in 22.947s
+[056/108] a=1,b=1,d=0.9,ants=30
+    completed in 28.482s
+[057/108] a=1,b=1,d=0.9,ants=50
+    completed in 53.537s
+[058/108] a=1,b=1,d=0.95,ants=20
+    completed in 23.024s
+[059/108] a=1,b=1,d=0.95,ants=30
+    completed in 28.350s
+[060/108] a=1,b=1,d=0.95,ants=50
+    completed in 53.628s
+[061/108] a=1,b=2,d=0.7,ants=20
+    completed in 24.227s
+[062/108] a=1,b=2,d=0.7,ants=30
+    completed in 30.146s
+[063/108] a=1,b=2,d=0.7,ants=50
+    completed in 54.907s
+[064/108] a=1,b=2,d=0.8,ants=20
+    completed in 24.259s
+[065/108] a=1,b=2,d=0.8,ants=30
+    completed in 30.032s
+[066/108] a=1,b=2,d=0.8,ants=50
+    completed in 55.035s
+[067/108] a=1,b=2,d=0.9,ants=20
+    completed in 24.353s
+[068/108] a=1,b=2,d=0.9,ants=30
+    completed in 29.994s
+[069/108] a=1,b=2,d=0.9,ants=50
+    completed in 55.012s
+[070/108] a=1,b=2,d=0.95,ants=20
+    completed in 24.263s
+[071/108] a=1,b=2,d=0.95,ants=30
+    completed in 30.105s
+[072/108] a=1,b=2,d=0.95,ants=50
+    completed in 55.053s
+[073/108] a=2,b=0.5,d=0.7,ants=20
+    completed in 24.335s
+[074/108] a=2,b=0.5,d=0.7,ants=30
+    completed in 40.738s
+[075/108] a=2,b=0.5,d=0.7,ants=50
+    completed in 61.726s
+[076/108] a=2,b=0.5,d=0.8,ants=20
+    completed in 24.517s
+[077/108] a=2,b=0.5,d=0.8,ants=30
+    completed in 40.535s
+[078/108] a=2,b=0.5,d=0.8,ants=50
+    completed in 61.544s
+[079/108] a=2,b=0.5,d=0.9,ants=20
+    completed in 24.529s
+[080/108] a=2,b=0.5,d=0.9,ants=30
+    completed in 40.468s
+[081/108] a=2,b=0.5,d=0.9,ants=50
+    completed in 61.446s
+[082/108] a=2,b=0.5,d=0.95,ants=20
+    completed in 24.535s
+[083/108] a=2,b=0.5,d=0.95,ants=30
+    completed in 40.655s
+[084/108] a=2,b=0.5,d=0.95,ants=50
+    completed in 62.299s
+[085/108] a=2,b=1,d=0.7,ants=20
+    completed in 24.348s
+[086/108] a=2,b=1,d=0.7,ants=30
+    completed in 30.123s
+[087/108] a=2,b=1,d=0.7,ants=50
+    completed in 54.696s
+[088/108] a=2,b=1,d=0.8,ants=20
+    completed in 24.255s
+[089/108] a=2,b=1,d=0.8,ants=30
+    completed in 30.144s
+[090/108] a=2,b=1,d=0.8,ants=50
+    completed in 54.720s
+[091/108] a=2,b=1,d=0.9,ants=20
+    completed in 24.362s
+[092/108] a=2,b=1,d=0.9,ants=30
+    completed in 30.087s
+[093/108] a=2,b=1,d=0.9,ants=50
+    completed in 56.054s
+[094/108] a=2,b=1,d=0.95,ants=20
+    completed in 24.180s
+[095/108] a=2,b=1,d=0.95,ants=30
+    completed in 30.137s
+[096/108] a=2,b=1,d=0.95,ants=50
+    completed in 54.947s
+[097/108] a=2,b=2,d=0.7,ants=20
+    completed in 24.219s
+[098/108] a=2,b=2,d=0.7,ants=30
+    completed in 30.012s
+[099/108] a=2,b=2,d=0.7,ants=50
+    completed in 55.375s
+[100/108] a=2,b=2,d=0.8,ants=20
+    completed in 24.630s
+[101/108] a=2,b=2,d=0.8,ants=30
+    completed in 30.009s
+[102/108] a=2,b=2,d=0.8,ants=50
+    completed in 55.277s
+[103/108] a=2,b=2,d=0.9,ants=20
+    completed in 24.202s
+[104/108] a=2,b=2,d=0.9,ants=30
+    completed in 30.072s
+[105/108] a=2,b=2,d=0.9,ants=50
+    completed in 55.149s
+[106/108] a=2,b=2,d=0.95,ants=20
+    completed in 24.216s
+[107/108] a=2,b=2,d=0.95,ants=30
+    completed in 30.242s
+[108/108] a=2,b=2,d=0.95,ants=50
+    completed in 55.067s
+
+====================================================================================================
+TOP 10 COARSE CONFIGURATIONS
+====================================================================================================
+rank  alpha   beta   decay  ants     LLM rel.        std
+   1      2      2    0.95    50     0.940162   0.059069
+   2      1      2     0.7    50     0.941028   0.053770
+   3      2      2    0.95    30     0.941230   0.057557
+   4      2      2     0.9    50     0.942261   0.059494
+   5      2      2    0.95    20     0.942418   0.060492
+   6      2      2     0.7    50     0.942438   0.058901
+   7      2      2     0.8    50     0.942819   0.057860
+   8      2      1     0.9    50     0.943345   0.057228
+   9      1      2     0.8    50     0.943383   0.054315
+  10      2      2     0.9    30     0.943633   0.060791
+
+Saved:
+/home/mahaveer/projects/reevo/benchmarks/results/aco_tuning_coarse_detailed.csv
+/home/mahaveer/projects/reevo/benchmarks/results/aco_tuning_coarse_summary.csv
+
+Total coarse elapsed: 4281.594s

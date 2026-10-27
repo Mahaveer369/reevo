@@ -1,0 +1,209 @@
+
+FROZEN ACO CONFIGURATION
+alpha      = 2.0
+beta       = 2.0
+decay      = 0.95
+n_ants     = 50
+iterations = 100
+
+======================================================================
+Instance: att48
+Nodes: 48
+Distance type: ATT
+Known optimum: 10628
+======================================================================
+
+--- aco_baseline ---
+seed=00 cost=12591.000 time=0.689s gap=18.47007903650734
+seed=01 cost=12422.000 time=0.691s gap=16.879939781708693
+seed=02 cost=12662.000 time=0.681s gap=19.138125705683102
+seed=03 cost=12529.000 time=0.679s gap=17.886714339480616
+seed=04 cost=12046.000 time=0.673s gap=13.342115167482122
+seed=05 cost=12834.000 time=0.686s gap=20.75649228453143
+seed=06 cost=12283.000 time=0.677s gap=15.572073767406849
+seed=07 cost=12007.000 time=0.673s gap=12.975159954836283
+seed=08 cost=13024.000 time=0.680s gap=22.544222807677833
+seed=09 cost=12171.000 time=0.683s gap=14.518253669552125
+
+--- aco_llm ---
+seed=00 cost=12143.000 time=0.679s gap=14.254798645088446
+seed=01 cost=11589.000 time=0.691s gap=9.042152803914188
+seed=02 cost=12133.000 time=0.674s gap=14.160707564922845
+seed=03 cost=12259.000 time=0.686s gap=15.34625517500941
+seed=04 cost=11970.000 time=0.680s gap=12.627022958223561
+seed=05 cost=12201.000 time=0.675s gap=14.800526910048928
+seed=06 cost=11852.000 time=0.685s gap=11.516748212269476
+seed=07 cost=11742.000 time=0.691s gap=10.481746330447873
+seed=08 cost=11650.000 time=0.673s gap=9.616108392924351
+seed=09 cost=11512.000 time=0.673s gap=8.317651486639067
+
+======================================================================
+Instance: berlin52
+Nodes: 52
+Distance type: EUC_2D
+Known optimum: 7542
+======================================================================
+
+--- aco_baseline ---
+seed=00 cost=8364.000 time=0.748s gap=10.898965791567223
+seed=01 cost=8653.000 time=0.743s gap=14.730840625828693
+seed=02 cost=9084.000 time=0.752s gap=20.445505171042164
+seed=03 cost=8607.000 time=0.751s gap=14.120922832140014
+seed=04 cost=9059.000 time=0.750s gap=20.11402810925484
+seed=05 cost=8514.000 time=0.741s gap=12.887828162291171
+seed=06 cost=8305.000 time=0.742s gap=10.116679925749137
+seed=07 cost=8728.000 time=0.750s gap=15.725271811190666
+seed=08 cost=8651.000 time=0.753s gap=14.704322460885708
+seed=09 cost=8794.000 time=0.752s gap=16.600371254309202
+
+--- aco_llm ---
+seed=00 cost=7943.000 time=0.760s gap=5.316892071068683
+seed=01 cost=7845.000 time=0.750s gap=4.017501988862371
+seed=02 cost=8203.000 time=0.742s gap=8.764253513656856
+seed=03 cost=8143.000 time=0.752s gap=7.968708565367276
+seed=04 cost=8104.000 time=0.748s gap=7.451604348979051
+seed=05 cost=8352.000 time=0.742s gap=10.739856801909307
+seed=06 cost=8138.000 time=0.751s gap=7.902413153009811
+seed=07 cost=8241.000 time=0.744s gap=9.268098647573588
+seed=08 cost=8297.000 time=0.757s gap=10.010607265977194
+seed=09 cost=8275.000 time=0.746s gap=9.718907451604348
+
+======================================================================
+Instance: st70
+Nodes: 70
+Distance type: EUC_2D
+Known optimum: None
+======================================================================
+
+--- aco_baseline ---
+seed=00 cost=744.000 time=1.658s gap=NA
+seed=01 cost=712.000 time=1.641s gap=NA
+seed=02 cost=738.000 time=1.640s gap=NA
+seed=03 cost=741.000 time=1.642s gap=NA
+seed=04 cost=726.000 time=1.640s gap=NA
+seed=05 cost=730.000 time=1.642s gap=NA
+seed=06 cost=730.000 time=1.643s gap=NA
+seed=07 cost=742.000 time=1.643s gap=NA
+seed=08 cost=730.000 time=1.643s gap=NA
+seed=09 cost=741.000 time=1.643s gap=NA
+
+--- aco_llm ---
+seed=00 cost=729.000 time=1.644s gap=NA
+seed=01 cost=719.000 time=1.641s gap=NA
+seed=02 cost=745.000 time=1.642s gap=NA
+seed=03 cost=737.000 time=1.641s gap=NA
+seed=04 cost=728.000 time=1.641s gap=NA
+seed=05 cost=729.000 time=1.638s gap=NA
+seed=06 cost=720.000 time=1.639s gap=NA
+seed=07 cost=731.000 time=1.639s gap=NA
+seed=08 cost=732.000 time=1.640s gap=NA
+seed=09 cost=732.000 time=1.639s gap=NA
+
+======================================================================
+Instance: pr76
+Nodes: 76
+Distance type: EUC_2D
+Known optimum: 108159
+======================================================================
+
+--- aco_baseline ---
+seed=00 cost=197133.000 time=1.840s gap=82.26222505755416
+seed=01 cost=190726.000 time=1.846s gap=76.33853863293855
+seed=02 cost=200295.000 time=1.844s gap=85.18569883227471
+seed=03 cost=209079.000 time=1.842s gap=93.30707569411699
+seed=04 cost=197165.000 time=1.842s gap=82.2918111299106
+seed=05 cost=204997.000 time=1.842s gap=89.53300233914885
+seed=06 cost=200784.000 time=1.843s gap=85.63781100047153
+seed=07 cost=202978.000 time=1.842s gap=87.66630608640982
+seed=08 cost=204152.000 time=1.842s gap=88.75174511598665
+seed=09 cost=196367.000 time=1.844s gap=81.55400845052192
+
+--- aco_llm ---
+seed=00 cost=174444.000 time=1.848s gap=61.284775192078335
+seed=01 cost=172831.000 time=1.850s gap=59.79345223236161
+seed=02 cost=170373.000 time=1.848s gap=57.520872049482705
+seed=03 cost=178453.000 time=1.848s gap=64.99135531948336
+seed=04 cost=164205.000 time=1.849s gap=51.81815660277924
+seed=05 cost=170038.000 time=1.849s gap=57.21114285450124
+seed=06 cost=160079.000 time=1.846s gap=48.003402398320986
+seed=07 cost=159950.000 time=1.847s gap=47.8841335441341
+seed=08 cost=168525.000 time=1.847s gap=55.812276370898395
+seed=09 cost=173541.000 time=1.850s gap=60.44989321277009
+
+======================================================================
+Instance: kroA100
+Nodes: 100
+Distance type: EUC_2D
+Known optimum: 21282
+======================================================================
+
+--- aco_baseline ---
+seed=00 cost=39419.000 time=2.750s gap=85.22225354759891
+seed=01 cost=39956.000 time=2.749s gap=87.7455126397895
+seed=02 cost=37040.000 time=2.749s gap=74.04379287660933
+seed=03 cost=39840.000 time=2.748s gap=87.2004510854243
+seed=04 cost=36973.000 time=2.750s gap=73.72897284089841
+seed=05 cost=40443.000 time=2.748s gap=90.03383140682266
+seed=06 cost=40501.000 time=2.749s gap=90.30636218400527
+seed=07 cost=35505.000 time=2.817s gap=66.83112489427685
+seed=08 cost=39168.000 time=3.132s gap=84.04285311530872
+seed=09 cost=40229.000 time=3.013s gap=89.02828681514895
+
+--- aco_llm ---
+seed=00 cost=31827.000 time=3.054s gap=49.54891457569777
+seed=01 cost=32424.000 time=2.753s gap=52.354102058077245
+seed=02 cost=31663.000 time=2.748s gap=48.778310309181464
+seed=03 cost=31637.000 time=2.748s gap=48.65614134009961
+seed=04 cost=32724.000 time=2.745s gap=53.76374400902171
+seed=05 cost=32499.000 time=2.752s gap=52.70651254581337
+seed=06 cost=32731.000 time=2.746s gap=53.79663565454374
+seed=07 cost=32002.000 time=2.750s gap=50.371205713748715
+seed=08 cost=31247.000 time=2.751s gap=46.82360680387181
+seed=09 cost=32812.000 time=2.748s gap=54.17723898129875
+
+======================================================================
+Instance: rat195
+Nodes: 195
+Distance type: EUC_2D
+Known optimum: None
+======================================================================
+
+--- aco_baseline ---
+seed=00 cost=2728.000 time=7.827s gap=NA
+seed=01 cost=2745.000 time=7.820s gap=NA
+seed=02 cost=2724.000 time=7.817s gap=NA
+seed=03 cost=2772.000 time=7.824s gap=NA
+seed=04 cost=2910.000 time=8.641s gap=NA
+seed=05 cost=2742.000 time=9.537s gap=NA
+seed=06 cost=2875.000 time=7.901s gap=NA
+seed=07 cost=2883.000 time=7.834s gap=NA
+seed=08 cost=2762.000 time=7.819s gap=NA
+seed=09 cost=2828.000 time=7.838s gap=NA
+
+--- aco_llm ---
+seed=00 cost=2573.000 time=7.863s gap=NA
+seed=01 cost=2601.000 time=7.864s gap=NA
+seed=02 cost=2690.000 time=8.450s gap=NA
+seed=03 cost=2600.000 time=8.408s gap=NA
+seed=04 cost=2621.000 time=7.818s gap=NA
+seed=05 cost=2571.000 time=7.828s gap=NA
+seed=06 cost=2609.000 time=7.822s gap=NA
+seed=07 cost=2627.000 time=7.825s gap=NA
+seed=08 cost=2684.000 time=7.823s gap=NA
+seed=09 cost=2629.000 time=7.830s gap=NA
+
+
+====================================================================================================
+FINAL TSPLIB SUMMARY
+====================================================================================================
+Instance        n         OPT      ACO Mean      LLM Mean     ACO Gap     LLM Gap   Improvement
+att48          48       10628     12456.900     11905.100      17.21%      12.02%         4.43%
+berlin52       52        7542      8675.900      8154.100      15.03%       8.12%         6.01%
+st70           70          NA       733.400       730.200          NA          NA         0.44%
+pr76           76      108159    200367.600    169243.900      85.25%      56.48%        15.53%
+kroA100       100       21282     38907.400     32156.600      82.82%      51.10%        17.35%
+rat195        195          NA      2796.900      2620.500          NA          NA         6.31%
+
+Saved:
+/home/mahaveer/projects/reevo/benchmarks/results/tsplib_final_tuned_detailed.csv
+/home/mahaveer/projects/reevo/benchmarks/results/tsplib_final_tuned_summary.csv

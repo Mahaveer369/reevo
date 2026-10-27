@@ -1,0 +1,76 @@
+
+FROZEN ACO CONFIGURATION
+alpha      = 1.0
+beta       = 2.0
+decay      = 0.8
+n_ants     = 50
+iterations = 100
+
+======================================================================
+Instance: st70
+Nodes: 70
+Distance type: EUC_2D
+Known optimum: None
+======================================================================
+
+--- aco_baseline ---
+seed=00 cost=675.000 time=85.993s gap=NA
+seed=01 cost=680.000 time=81.723s gap=NA
+seed=02 cost=682.000 time=78.346s gap=NA
+seed=03 cost=682.000 time=82.040s gap=NA
+seed=04 cost=675.000 time=81.665s gap=NA
+seed=05 cost=682.000 time=82.653s gap=NA
+seed=06 cost=676.000 time=77.329s gap=NA
+seed=07 cost=677.000 time=84.744s gap=NA
+seed=08 cost=676.000 time=85.437s gap=NA
+seed=09 cost=676.000 time=86.257s gap=NA
+
+--- aco_llm ---
+seed=00 cost=681.000 time=75.784s gap=NA
+seed=01 cost=680.000 time=80.854s gap=NA
+seed=02 cost=683.000 time=76.073s gap=NA
+seed=03 cost=677.000 time=76.915s gap=NA
+seed=04 cost=680.000 time=76.344s gap=NA
+seed=05 cost=677.000 time=75.109s gap=NA
+seed=06 cost=676.000 time=77.410s gap=NA
+seed=07 cost=676.000 time=74.893s gap=NA
+seed=08 cost=675.000 time=76.200s gap=NA
+seed=09 cost=684.000 time=72.447s gap=NA
+
+======================================================================
+Instance: rat195
+Nodes: 195
+Distance type: EUC_2D
+Known optimum: None
+======================================================================
+
+--- aco_baseline ---
+seed=00 cost=2351.000 time=1640.756s gap=NA
+seed=01 cost=2353.000 time=1638.608s gap=NA
+seed=02 cost=2360.000 time=1500.309s gap=NA
+seed=03 cost=2360.000 time=1804.371s gap=NA
+seed=04 cost=2355.000 time=1560.876s gap=NA
+seed=05 cost=2360.000 time=1533.197s gap=NA
+seed=06 cost=2393.000 time=1450.665s gap=NA
+seed=07 cost=2379.000 time=1565.719s gap=NA
+seed=08 cost=2366.000 time=1488.408s gap=NA
+seed=09 cost=2328.000 time=1681.473s gap=NA
+
+--- aco_llm ---
+seed=00 cost=2357.000 time=1517.067s gap=NA
+seed=01 cost=2400.000 time=1390.234s gap=NA
+seed=02 cost=2366.000 time=1402.463s gap=NA
+seed=03 cost=2368.000 time=1446.256s gap=NA
+seed=04 cost=2361.000 time=1564.371s gap=NA
+seed=05 cost=2373.000 time=1491.584s gap=NA
+seed=06 cost=2406.000 time=1576.045s gap=NA
+seed=07 cost=2357.000 time=1485.619s gap=NA
+seed=08 cost=2358.000 time=1509.650s gap=NA
+seed=09 cost=2360.000 time=1571.659s gap=NA
+Traceback (most recent call last):
+  File "/home/mahaveer/projects/reevo/benchmarks/tsplib_aco_benchmark.py", line 459, in <module>
+    main()
+  File "/home/mahaveer/projects/reevo/benchmarks/tsplib_aco_benchmark.py", line 336, in main
+    detailed_path = RESULTS_DIR / st70_rat195_alpha1_beta2_decay08_detailed.csv
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'st70_rat195_alpha1_beta2_decay08_detailed' is not defined

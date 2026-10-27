@@ -1,0 +1,4 @@
+rat195 aco_baseline seed=0 cost=2351.000 elapsed=1612.08s reported_runtime=1612.05s gap=None
+rat195 aco_baseline seed=1 cost=2353.000 elapsed=1558.02s reported_runtime=1558.01s gap=None
+rat195 aco_llm seed=0 cost=2357.000 elapsed=1469.85s reported_runtime=1469.85s gap=None
+rat195 aco_llm seed=1 cost=2400.000 elapsed=1319.77s reported_runtime=1319.77s gap=None

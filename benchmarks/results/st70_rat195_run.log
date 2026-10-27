@@ -1,0 +1,81 @@
+
+FROZEN ACO CONFIGURATION
+alpha      = 2.0
+beta       = 2.0
+decay      = 0.95
+n_ants     = 50
+iterations = 100
+
+======================================================================
+Instance: st70
+Nodes: 70
+Distance type: EUC_2D
+Known optimum: None
+======================================================================
+
+--- aco_baseline ---
+seed=00 cost=676.000 time=129.282s gap=NA
+seed=01 cost=676.000 time=122.615s gap=NA
+seed=02 cost=676.000 time=135.843s gap=NA
+seed=03 cost=675.000 time=130.671s gap=NA
+seed=04 cost=677.000 time=128.871s gap=NA
+seed=05 cost=681.000 time=133.232s gap=NA
+seed=06 cost=676.000 time=137.193s gap=NA
+seed=07 cost=680.000 time=126.866s gap=NA
+seed=08 cost=675.000 time=129.498s gap=NA
+seed=09 cost=676.000 time=121.161s gap=NA
+
+--- aco_llm ---
+seed=00 cost=682.000 time=121.930s gap=NA
+seed=01 cost=675.000 time=111.974s gap=NA
+seed=02 cost=676.000 time=126.842s gap=NA
+seed=03 cost=677.000 time=124.199s gap=NA
+seed=04 cost=675.000 time=128.027s gap=NA
+seed=05 cost=680.000 time=120.059s gap=NA
+seed=06 cost=675.000 time=137.839s gap=NA
+seed=07 cost=675.000 time=126.425s gap=NA
+seed=08 cost=675.000 time=127.117s gap=NA
+seed=09 cost=675.000 time=127.289s gap=NA
+
+======================================================================
+Instance: rat195
+Nodes: 195
+Distance type: EUC_2D
+Known optimum: None
+======================================================================
+
+--- aco_baseline ---
+seed=00 cost=2354.000 time=3244.747s gap=NA
+seed=01 cost=2369.000 time=2905.378s gap=NA
+seed=02 cost=2364.000 time=2832.530s gap=NA
+seed=03 cost=2351.000 time=2616.437s gap=NA
+seed=04 cost=2348.000 time=3052.167s gap=NA
+seed=05 cost=2374.000 time=2894.505s gap=NA
+seed=06 cost=2357.000 time=2768.814s gap=NA
+seed=07 cost=2363.000 time=3113.041s gap=NA
+seed=08 cost=2380.000 time=2893.250s gap=NA
+seed=09 cost=2377.000 time=3191.978s gap=NA
+
+--- aco_llm ---
+seed=00 cost=2351.000 time=2762.615s gap=NA
+seed=01 cost=2348.000 time=2852.806s gap=NA
+seed=02 cost=2351.000 time=2824.716s gap=NA
+seed=03 cost=2382.000 time=2674.633s gap=NA
+seed=04 cost=2350.000 time=3081.078s gap=NA
+seed=05 cost=2358.000 time=2838.347s gap=NA
+seed=06 cost=2360.000 time=2942.021s gap=NA
+seed=07 cost=2345.000 time=2952.801s gap=NA
+seed=08 cost=2360.000 time=2803.232s gap=NA
+seed=09 cost=2350.000 time=2704.970s gap=NA
+
+
+====================================================================================================
+FINAL TSPLIB SUMMARY
+====================================================================================================
+Instance        n         OPT      ACO Mean      LLM Mean     ACO Gap     LLM Gap   Improvement
+st70           70          NA       676.800       676.500          NA          NA         0.04%
+rat195        195          NA      2363.700      2355.500          NA          NA         0.35%
+
+Saved:
+/home/mahaveer/projects/reevo/benchmarks/results/st70_rat195_detailed.csv
+/home/mahaveer/projects/reevo/benchmarks/results/st70_rat195_summary.csv

@@ -1,0 +1,4 @@
+att48 aco_baseline seed=0 cost=10638.000 elapsed=32.54s reported_runtime=32.27s gap=0.0940910801656003
+att48 aco_baseline seed=1 cost=10638.000 elapsed=32.85s reported_runtime=32.85s gap=0.0940910801656003
+att48 aco_llm seed=0 cost=10638.000 elapsed=31.23s reported_runtime=31.22s gap=0.0940910801656003
+att48 aco_llm seed=1 cost=10638.000 elapsed=31.08s reported_runtime=31.07s gap=0.0940910801656003
