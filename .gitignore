@@ -172,3 +172,10 @@ venv
 *.DS_Store
 exp/*
 ablation/*
+# Local research environment and generated Python caches
+__pycache__/
+*.py[cod]
+cfg/llm_client/local_qwen.yaml
+
+.playwright-cli/
+.aistudio/

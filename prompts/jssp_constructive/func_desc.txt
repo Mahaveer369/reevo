@@ -1,0 +1,10 @@
+The `priority` function takes a dictionary `features` describing all operations in the current Giffler-Thompson conflict set C (all competing on the same bottleneck machine) and returns a list of priority scores of the same length (higher score = higher priority to be scheduled first).
+Available keys in `features` (each a list of floats of length |C|, normalized to be dimensionless and scale-invariant):
+- `'pt_norm'`: operation processing time divided by mean operation processing time.
+- `'rem_work_norm'`: remaining processing time of the job (including current operation) divided by max total job work.
+- `'rem_ops_norm'`: remaining number of operations in the job divided by total machines m.
+- `'winq_norm'`: Work in Next Queue (total processing time of operations currently waiting at the job's next machine) divided by mean job work.
+- `'slack_norm'`: dynamic job slack relative to current lower bound.
+- `'wait_norm'`: waiting time of the operation on the current machine relative to mean processing time.
+- `'machine_load_norm'`: remaining unscheduled workload on the current machine divided by max machine workload.
+- `'progress'`: scalar float in [0, 1] indicating fraction of total operations scheduled so far.

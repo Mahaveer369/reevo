@@ -1,0 +1,5 @@
+{
+  "name": "ReEvo JSSP & TSP-MMAS Research Workbench",
+  "description": "LLM-Guided Hyper-Heuristic Evolution and Experimental Benchmark Suite transitioning from TSP/MMAS + 2-Opt to the Job-Shop Scheduling Problem (JSSP) with Giffler-Thompson Active Scheduling and Critical-Path Local Search.",
+  "requestFramePermissions": []
+}

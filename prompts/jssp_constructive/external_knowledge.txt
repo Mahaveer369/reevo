@@ -1,0 +1,4 @@
+- Prioritizing jobs with large remaining work (`rem_work_norm`, MWKR) prevents late single-job tails that inflate Cmax.
+- Penalizing operations with large processing time (`pt_norm`, SPT) releases the bottleneck machine earlier for other waiting jobs.
+- Penalizing operations whose next machine already has a large queue (`winq_norm`, Work in Next Queue) prevents downstream starvation and machine idling.
+- Stage-dependent weights using `progress` (early schedule vs. late schedule) can shift focus from global workload balance to critical bottleneck completion.

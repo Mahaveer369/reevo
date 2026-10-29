@@ -1,0 +1,3 @@
+instance,nodes,optimal_cost,baseline_mean,baseline_std,baseline_best,baseline_runtime,baseline_gap,llm_mean,llm_std,llm_best,llm_runtime,llm_gap,llm_improvement_percent,baseline_best_route,llm_best_route
+st70,70,,678.1,2.879236009777594,675.0,82.6187,,678.9,2.9816103031751147,675.0,76.2029,,-0.11797669960182193,,
+rat195,195,,2360.5,16.31716887208072,2328.0,1586.4382,,2370.6,16.983521425193302,2357.0,1495.4948,,-0.4278754501164969,,

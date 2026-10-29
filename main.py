@@ -62,4 +62,10 @@ def main(cfg):
             logging.info(line.strip())
 
 if __name__ == "__main__":
-    main()
+    import sys
+    if os.environ.get("PORT") and len(sys.argv) == 1:
+        from app import run_server
+        run_server(port=int(os.environ.get("PORT", 3000)))
+    else:
+        main()
+

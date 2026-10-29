@@ -1,0 +1,6 @@
+problem_name: jssp_constructive
+problem_type: constructive
+obj_type: min
+problem_size: 10
+func_name: priority
+description: Solving the classical Job-Shop Scheduling Problem (JSSP, Jm || Cmax) via Giffler-Thompson active schedule construction guided by a state-dependent conflict-resolution priority function. Each job consists of operations with fixed machine assignments and processing times; the objective is to minimize makespan (Cmax).

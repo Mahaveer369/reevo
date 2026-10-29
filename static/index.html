@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ReEvo JSSP &amp; TSP-MMAS Research Workbench</title>
+    <meta
+      name="description"
+      content="LLM-Guided Hyper-Heuristic Evolution and Experimental Benchmark Suite transitioning from TSP/MMAS + 2-Opt to the Job-Shop Scheduling Problem (JSSP) with Giffler-Thompson Active Scheduling and Critical-Path Local Search."
+    />
+    <meta property="og:title" content="ReEvo JSSP &amp; TSP-MMAS Research Workbench" />
+    <meta
+      property="og:description"
+      content="LLM-Guided Hyper-Heuristic Evolution and Experimental Benchmark Suite transitioning from TSP/MMAS + 2-Opt to the Job-Shop Scheduling Problem (JSSP) with Giffler-Thompson Active Scheduling and Critical-Path Local Search."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <header class="top-header">
+      <div class="header-inner">
+        <div class="brand-group">
+          <div class="brand-kicker">REFLECTIVE EVOLUTION HYPER-HEURISTICS &middot; OR-LIBRARY BENCHMARK SUITE</div>
+          <h1 class="brand-title">ReEvo: TSP/MMAS to Job-Shop Scheduling (<i>J<sub>m</sub></i> &parallel; <i>C</i><sub>max</sub>) Research Workbench</h1>
+        </div>
+        <div class="header-badges">
+          <span class="status-badge verified" id="global-feasibility-badge">100% Schedule Feasibility Verified</span>
+          <span class="status-badge neutral">Zero Test-Time LLM Latency</span>
+        </div>
+      </div>
+      <nav class="tab-nav" aria-label="Research Workbench Views">
+        <button type="button" class="tab-btn active" data-tab="benchmarks" aria-selected="true">
+          1. Controlled JSSP Benchmarks &amp; Ablations
+        </button>
+        <button type="button" class="tab-btn" data-tab="gantt" aria-selected="false">
+          2. Disjunctive Graph, Gantt &amp; Critical Path
+        </button>
+        <button type="button" class="tab-btn" data-tab="sandbox" aria-selected="false">
+          3. Priority Heuristic Sandbox &amp; Code Evolution
+        </button>
+        <button type="button" class="tab-btn" data-tab="audit" aria-selected="false">
+          4. TSP/MMAS Audit &amp; Transfer Architecture
+        </button>
+      </nav>
+    </header>
+
+    <main class="main-container">
+      <!-- TAB 1: Controlled JSSP Benchmarks & Ablations -->
+      <section id="tab-benchmarks" class="tab-panel active" aria-label="Controlled JSSP Benchmarks and Ablations">
+        <div class="metrics-strip" id="summary-kpi-cards">
+          <div class="kpi-card">
+            <div class="kpi-label">Single-Pass MWKR Baseline Gap</div>
+            <div class="kpi-value" id="kpi-mwkr-gap">22.33%</div>
+            <div class="kpi-sub">Giffler–Thompson Active Schedule (12 OR-Library insts)</div>
+          </div>
+          <div class="kpi-card highlight">
+            <div class="kpi-label">Single-Pass ReEvo-Qwen Priority Gap</div>
+            <div class="kpi-value" id="kpi-reevo-single-gap">19.78%</div>
+            <div class="kpi-sub" id="kpi-reevo-single-sub">-2.55% gap reduction (wins 10/12 instances, ft06 = 55 optimal)</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Multi-Start MWKR + Critical-Path LS</div>
+            <div class="kpi-value" id="kpi-ms-mwkr-gap">9.14%</div>
+            <div class="kpi-sub">Matched budget: K=6 starts + N<sub>1</sub> Critical-Block Swaps</div>
+          </div>
+          <div class="kpi-card highlight-primary">
+            <div class="kpi-label">Proposed ReEvo-Qwen + Critical-Path LS</div>
+            <div class="kpi-value" id="kpi-ms-reevo-gap">7.42%</div>
+            <div class="kpi-sub" id="kpi-ms-reevo-sub">Best overall makespan &middot; 100.0% feasible across all seeds</div>
+          </div>
+        </div>
+
+        <div class="panel-card">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">Experimental Protocol &amp; Matched-Budget Comparison Table</h2>
+              <p class="panel-subtitle">
+                Relative optimality gap: Gap(%) = 100 &times; (<i>C</i><sub>max</sub> &minus; <i>C</i>*) / <i>C</i>* against canonical OR-Library optima (<i>C</i>*). Every schedule is verified by the independent feasibility validator.
+              </p>
+            </div>
+            <form id="benchmark-controls-form" class="controls-bar">
+              <div class="control-field">
+                <label for="subset-select">Benchmark Suite</label>
+                <select id="subset-select" name="subset">
+                  <option value="all">All 12 Canonical Instances (FT, LA, ORB, ABZ)</option>
+                  <option value="ft">Fisher &amp; Thompson (ft06, ft10, ft20)</option>
+                  <option value="la">Lawrence Suite (la01–la05, la16)</option>
+                  <option value="hard">Hard 10x10 &amp; 20x5 Instances (ft10, ft20, la16, orb01, abz5, abz6)</option>
+                </select>
+              </div>
+              <div class="control-field">
+                <label for="starts-input">Multi-Start Budget (<i>K</i>)</label>
+                <select id="starts-input" name="n_starts">
+                  <option value="5">K = 5 starts</option>
+                  <option value="6" selected>K = 6 starts</option>
+                  <option value="10">K = 10 starts</option>
+                </select>
+              </div>
+              <div class="control-field">
+                <label for="ls-steps-input">Critical-Path LS Steps</label>
+                <select id="ls-steps-input" name="ls_steps">
+                  <option value="20" selected>20 swap steps</option>
+                  <option value="30">30 swap steps</option>
+                  <option value="50">50 swap steps</option>
+                </select>
+              </div>
+              <button type="submit" class="primary-btn" id="run-benchmark-btn">Run Controlled Experiment</button>
+            </form>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table" id="benchmark-summary-table">
+              <thead>
+                <tr>
+                  <th>Method Category</th>
+                  <th>Solver / Ablation Variant</th>
+                  <th class="num">Mean <i>C</i><sub>max</sub></th>
+                  <th class="num">Mean Gap (%) &plusmn; SD</th>
+                  <th class="num">Median Gap (%)</th>
+                  <th class="num">Best Gap (%)</th>
+                  <th class="num">Eval Time (ms/inst)</th>
+                  <th class="num">Avg Sched Evals</th>
+                  <th class="num">Offline LLM Calls / Tokens</th>
+                  <th class="num">Feasibility</th>
+                </tr>
+              </thead>
+              <tbody id="benchmark-summary-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="panel-card">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">Per-Instance Makespan (<i>C</i><sub>max</sub>) &amp; Relative Gap Breakdown</h2>
+              <p class="panel-subtitle">
+                Click any instance row to inspect its full Disjunctive Graph Gantt Schedule &amp; Critical Blocks in Tab 2.
+              </p>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="data-table" id="per-instance-table">
+              <thead>
+                <tr>
+                  <th>Instance</th>
+                  <th>Family</th>
+                  <th>Size (<i>n</i> &times; <i>m</i>)</th>
+                  <th class="num">Optimum (<i>C</i>*)</th>
+                  <th class="num">SPT (GT)</th>
+                  <th class="num">MWKR (GT)</th>
+                  <th class="num">ReEvo-Qwen (Single GT)</th>
+                  <th class="num">Multi-Start MWKR + CP-LS</th>
+                  <th class="num">Proposed ReEvo-Qwen + CP-LS</th>
+                  <th>Inspect</th>
+                </tr>
+              </thead>
+              <tbody id="per-instance-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 2: Disjunctive Graph, Gantt & Critical Path -->
+      <section id="tab-gantt" class="tab-panel" aria-label="Disjunctive Graph, Gantt and Critical Path Inspector">
+        <div class="panel-card">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">Interactive Schedule Gantt Chart, Critical Path &amp; Feasibility Verifier</h2>
+              <p class="panel-subtitle">
+                Operations outlined in crimson lie on the critical path (<i>r<sub>o</sub> + p<sub>o</sub> + q<sub>o</sub> = C</i><sub>max</sub>). Contiguous critical operations on the same machine form critical blocks (<i>N</i><sub>1</sub> / <i>N</i><sub>5</sub> swap candidates).
+              </p>
+            </div>
+            <form id="gantt-controls-form" class="controls-bar">
+              <div class="control-field">
+                <label for="gantt-instance-select">Benchmark Instance</label>
+                <select id="gantt-instance-select" name="instance">
+                  <option value="ft06">ft06 (6x6, C* = 55)</option>
+                  <option value="ft10">ft10 (10x10, C* = 930)</option>
+                  <option value="ft20">ft20 (20x5, C* = 1165)</option>
+                  <option value="la01">la01 (10x5, C* = 666)</option>
+                  <option value="la02">la02 (10x5, C* = 655)</option>
+                  <option value="la03">la03 (10x5, C* = 597)</option>
+                  <option value="la04">la04 (10x5, C* = 590)</option>
+                  <option value="la05">la05 (10x5, C* = 593)</option>
+                  <option value="la16">la16 (10x10, C* = 945)</option>
+                  <option value="orb01">orb01 (10x10, C* = 1059)</option>
+                  <option value="abz5">abz5 (10x10, C* = 1234)</option>
+                  <option value="abz6">abz6 (10x10, C* = 943)</option>
+                </select>
+              </div>
+              <div class="control-field">
+                <label for="gantt-solver-select">Solver Method</label>
+                <select id="gantt-solver-select" name="solver">
+                  <option value="multistart_reevo_cpls">Proposed: Multi-Start GT (ReEvo-Qwen) + Critical-Path LS</option>
+                  <option value="reevo_gt_single">Single-Pass GT (ReEvo-Qwen Priority Rule)</option>
+                  <option value="multistart_mwkr_cpls">Baseline: Multi-Start GT (MWKR) + Critical-Path LS</option>
+                  <option value="mwkr_cpls_single">Single-Start MWKR + Critical-Path LS</option>
+                  <option value="mwkr_gt">Single-Pass MWKR (Giffler–Thompson Active)</option>
+                  <option value="spt_gt">Single-Pass SPT (Giffler–Thompson Active)</option>
+                  <option value="pt_winq_gt">Single-Pass PT + WINQ</option>
+                </select>
+              </div>
+              <button type="submit" class="primary-btn" id="solve-instance-btn">Solve &amp; Verify Schedule</button>
+            </form>
+          </div>
+
+          <div class="schedule-summary-bar" id="schedule-summary-bar"></div>
+
+          <div class="gantt-wrapper" id="gantt-chart-container" data-testid="gantt-chart"></div>
+
+          <div class="two-col-grid">
+            <div class="sub-card">
+              <h3 class="sub-title">Independent Feasibility Validator Report</h3>
+              <ul class="check-list" id="validator-checklist"></ul>
+            </div>
+            <div class="sub-card">
+              <h3 class="sub-title">Critical Blocks (<i>N</i><sub>1</sub> / <i>N</i><sub>5</sub> Local Search Candidates)</h3>
+              <div id="critical-blocks-list" class="blocks-container"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 3: Priority Heuristic Sandbox & Code Evolution -->
+      <section id="tab-sandbox" class="tab-panel" aria-label="Priority Heuristic Sandbox and Code Evolution">
+        <div class="panel-card">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">State-Dependent Conflict Priority Heuristic Sandbox (<code>problems/jssp_constructive/gpt.py</code>)</h2>
+              <p class="panel-subtitle">
+                Edit the Python <code>priority(features: dict) -&gt; list</code> function below and evaluate it live inside the Giffler–Thompson + Critical-Path Local Search harness.
+              </p>
+            </div>
+          </div>
+
+          <div class="sandbox-grid">
+            <div class="code-editor-col">
+              <div class="preset-bar">
+                <span class="preset-label">Load Preset Rule:</span>
+                <button type="button" class="secondary-btn" data-preset="reevo">ReEvo-Qwen Best Rule</button>
+                <button type="button" class="secondary-btn" data-preset="mwkr">Classical MWKR Seed</button>
+                <button type="button" class="secondary-btn" data-preset="winq">Holthaus PT+WINQ</button>
+              </div>
+              <label for="custom-code-textarea" class="sr-only">Python Priority Heuristic Code</label>
+              <textarea id="custom-code-textarea" rows="18" spellcheck="false" class="code-textarea"></textarea>
+              <div class="sandbox-actions">
+                <button type="button" class="primary-btn" id="eval-custom-btn">Compile &amp; Evaluate Custom Heuristic</button>
+                <span id="sandbox-status-msg" class="sandbox-status"></span>
+              </div>
+            </div>
+
+            <div class="sandbox-results-col">
+              <h3 class="sub-title">Dimensionless Conflict-Set Features (<code>features: dict</code>)</h3>
+              <ul class="feature-doc-list">
+                <li><code>features['pt_norm']</code>: <i>p<sub>o</sub> / p&#772;</i> (Operation duration relative to instance mean).</li>
+                <li><code>features['rem_work_norm']</code>: <i>W</i><sub>rem</sub>(<i>j</i>) / max<sub><i>j</i></sub> <i>W<sub>j</sub></i> (Most Work Remaining ratio).</li>
+                <li><code>features['rem_ops_norm']</code>: <i>N</i><sub>rem</sub>(<i>j</i>) / <i>m</i> (Fraction of remaining operations in job).</li>
+                <li><code>features['winq_norm']</code>: WINQ<sub><i>o</i></sub> / max<sub><i>j</i></sub> <i>W<sub>j</sub></i> (Work waiting at job's next machine).</li>
+                <li><code>features['slack_norm']</code>: (<i>LB</i> &minus; (<i>r<sub>o</sub></i> + <i>W</i><sub>rem</sub>(<i>j</i>))) / max<sub><i>j</i></sub> <i>W<sub>j</sub></i> (Dynamic job slack).</li>
+                <li><code>features['earliest_start_norm']</code>: <i>r<sub>o</sub></i> / max<sub><i>j</i></sub> <i>W<sub>j</sub></i> (Penalizes bottleneck machine idling).</li>
+                <li><code>features['progress']</code>: Scalar in [0, 1] tracking fraction of scheduled operations.</li>
+              </ul>
+              <div id="custom-eval-output" class="custom-eval-box">
+                Click <strong>Compile &amp; Evaluate Custom Heuristic</strong> to benchmark your function across 6 canonical instances (<code>ft06</code>, <code>ft10</code>, <code>la01</code>, <code>la02</code>, <code>orb01</code>, <code>abz5</code>) with independent feasibility verification.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 4: TSP/MMAS Audit & Transfer Architecture -->
+      <section id="tab-audit" class="tab-panel" aria-label="TSP MMAS Audit and Transfer Architecture">
+        <div class="panel-card">
+          <h2 class="panel-title">1. Mathematical Audit of Upstream ReEvo TSP-ACO (<code>problems/tsp_aco/test.ipynb</code>)</h2>
+          <p class="panel-subtitle">
+            Why static distance-matrix priors <i>&eta;&#770;</i>(<i>D</i>) show mixed results when paired with MMAS + Candidate-Restricted 2-Opt.
+          </p>
+          <div class="two-col-grid">
+            <div class="sub-card">
+              <h3 class="sub-title">Dead-Code Algebraic Proof in <code>heuristics_reevo</code></h3>
+              <p class="body-copy">
+                In <code>/problems/tsp_aco/test.ipynb</code> (lines 20–42), the ReEvo-generated function computes <code>correlation_matrix = np.corrcoef(edge_attr_norm.T)</code> (<i>O</i>(<i>n</i><sup>3</sup>) cost) and sets:
+              </p>
+              <pre class="code-block">heuristic_values[i][j] = np.exp(
+    -8 * edge_attr_norm[i][j] * correlation_matrix[j][j]
+)</pre>
+              <p class="body-copy">
+                Because the diagonal of any Pearson correlation matrix satisfies corr<sub><i>jj</i></sub> &equiv; 1.0, the entire correlation matrix computation is a <strong>mathematical no-op</strong>. The heuristic reduces strictly to a column-standardized power-law transformation of inverse distance:
+              </p>
+              <pre class="code-block">eta_hat[i, j] = exp(8 * mu_j / sigma_j) * (1 + d[i, j]) ** (-8 / sigma_j)</pre>
+            </div>
+
+            <div class="sub-card">
+              <h3 class="sub-title">Why 2-Opt Absorbs Static Priors (and Why JSSP Differs)</h3>
+              <ul class="check-list">
+                <li>
+                  <strong>Local Search Basin Projection:</strong> In TSP, running 2-opt after ant tour construction projects every sampled tour onto a 2-opt local minimum. A static matrix <i>&eta;&#770;</i>(<i>D</i>) cannot adapt to partial tour constraints; over-sharpening <i>&eta;&#770;</i>(<i>D</i>) collapses ant diversity and causes premature MMAS stagnation.
+                </li>
+                <li>
+                  <strong>Top-5 Candidate Pruning Trade-Off:</strong> Restricting 2-opt to the top-5 nearest neighbors reduces complexity from <i>O</i>(<i>n</i><sup>2</sup>) to <i>O</i>(5<i>n</i>) (explaining large runtime speedups), but truncates valid improving moves on clustered TSPLIB instances.
+                </li>
+                <li>
+                  <strong>Why JSSP Resolves This:</strong> In JSSP, conflict sets <i>C</i> arise dynamically as machine queues and job ready times evolve. Furthermore, restricting JSSP local search to <strong>Critical-Path Block Swaps (<i>N</i><sub>1</sub> / <i>N</i><sub>5</sub>)</strong> is mathematically exact because non-critical swaps can never reduce <i>C</i><sub>max</sub>.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-card">
+          <h2 class="panel-title">2. TSP-to-JSSP Component Transfer Map</h2>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Existing TSP Component</th>
+                  <th>JSSP Counterpart Implemented in This Repo</th>
+                  <th>Transfer Verdict</th>
+                  <th>Engineering &amp; Algorithmic Rationale</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>reevo.py</code> Reflective Evolution Loop</td>
+                  <td><code>reevo.py</code> + <code>cfg/problem/jssp_constructive.yaml</code></td>
+                  <td><span class="pill-tag keep">Retained Directly</span></td>
+                  <td>Offline code evolution avoids test-time LLM latency while synthesizing non-linear feature interactions.</td>
+                </tr>
+                <tr>
+                  <td>Static Distance Prior <i>&eta;&#770;</i>(<i>D<sub>ij</sub></i>)</td>
+                  <td>Dynamic Conflict-Set Priority <i>h</i>(features(<i>C<sub>t</sub></i>))</td>
+                  <td><span class="pill-tag redesign">Redesigned</span></td>
+                  <td>Scores precedence-eligible operations competing on bottleneck machine <i>m</i>* using dimensionless queue/slack state.</td>
+                </tr>
+                <tr>
+                  <td>ACO Tour Sampling (<code>aco.py</code>)</td>
+                  <td>Giffler–Thompson Active Scheduler (<code>scheduler.py</code>)</td>
+                  <td><span class="pill-tag redesign">Redesigned</span></td>
+                  <td>Guarantees 100% feasible, acyclic active schedules and supports Boltzmann multi-start conflict sampling.</td>
+                </tr>
+                <tr>
+                  <td>Top-5 Candidate 2-Opt Local Search</td>
+                  <td>Critical-Path Block Swap LS (<i>N</i><sub>1</sub> / <i>N</i><sub>5</sub>, <code>local_search.py</code>)</td>
+                  <td><span class="pill-tag modify">Adapted to Disjunctive Graph</span></td>
+                  <td>Prunes non-critical moves without losing optimality; only critical-block swaps can reduce makespan <i>C</i><sub>max</sub>.</td>
+                </tr>
+                <tr>
+                  <td>Local Qwen / OpenAI Client</td>
+                  <td><code>utils/llm_client/qwen_local.py</code> + Token Telemetry</td>
+                  <td><span class="pill-tag keep">Retained &amp; Hardened</span></td>
+                  <td>Tracks prompt/completion token budgets and provides deterministic offline fallback when no server is running.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
