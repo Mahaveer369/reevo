@@ -1,6 +1,7 @@
 """Controlled experimental harness for JSSP benchmarks, ablations, and TSP-to-JSSP diagnostic audit."""
 
 from __future__ import annotations
+import inspect
 import math
 import statistics
 import time
@@ -25,7 +26,22 @@ from .reevo_heuristics import (
     rule_ablation_no_winq,
     rule_ablation_zero_shot,
     rule_reevo_qwen,
+    rule_vrpagent_ensemble,
 )
+
+
+def _measure_code_lines(fn: Callable) -> int:
+    """Measure non-empty, non-comment Python source lines of a heuristic function (VRPAgent Eq. 1 Len(C_i))."""
+    try:
+        lines, _ = inspect.getsourcelines(fn)
+        code_lines = [
+            ln.strip()
+            for ln in lines
+            if ln.strip() and not ln.strip().startswith("#") and not ln.strip().startswith('"""')
+        ]
+        return max(1, len(code_lines))
+    except Exception:
+        return 10
 
 
 def run_benchmark_suite(
@@ -37,11 +53,11 @@ def run_benchmark_suite(
 ) -> Dict[str, Any]:
     """
     Execute controlled comparison across:
-      A. Conventional Dispatching Rules (SPT, LPT, FIFO, MOR, MWKR, PT+WINQ)
-      D1. Single-Pass ReEvo-Qwen Giffler-Thompson Priority Rule
+      A. Conventional Dispatching Rules (SPT, FIFO, MOR, MWKR, PT+WINQ)
+      D1. Single-Pass ReEvo-Qwen & VRPAgent-Ensemble Giffler-Thompson Priority Rules
       B. Classical Metaheuristic (MWKR + Critical-Path Tabu/Block-Swap Local Search)
       C. Multi-Start GT (MWKR Prior) + Critical-Path Local Search
-      D2. Proposed Hybrid: Multi-Start GT (ReEvo-Qwen Prior) + Critical-Path Local Search
+      D2. Proposed Hybrids: Multi-Start GT (ReEvo-Qwen / VRPAgent-Ensemble) + Critical-Path Local Search
       Ablation 1: Zero-Shot LLM (No ReEvo Reflective Evolution) + Critical-Path LS
       Ablation 2: ReEvo-Qwen Prior WITHOUT Downstream WINQ Lookahead + Critical-Path LS
       Ablation 3: Multi-Start GT (ReEvo-Qwen Prior) WITHOUT Critical-Path Local Search
@@ -68,8 +84,6 @@ def run_benchmark_suite(
             "mode": "single",
             "fn": rule_spt,
             "ls": False,
-            "llm_calls": 0,
-            "llm_tokens": 0,
         },
         {
             "id": "fifo_gt",
@@ -78,8 +92,6 @@ def run_benchmark_suite(
             "mode": "single",
             "fn": rule_fifo,
             "ls": False,
-            "llm_calls": 0,
-            "llm_tokens": 0,
         },
         {
             "id": "mor_gt",
@@ -88,8 +100,6 @@ def run_benchmark_suite(
             "mode": "single",
             "fn": rule_mor,
             "ls": False,
-            "llm_calls": 0,
-            "llm_tokens": 0,
         },
         {
             "id": "mwkr_gt",
@@ -98,8 +108,6 @@ def run_benchmark_suite(
             "mode": "single",
             "fn": rule_mwkr,
             "ls": False,
-            "llm_calls": 0,
-            "llm_tokens": 0,
         },
         {
             "id": "pt_winq_gt",
@@ -108,8 +116,6 @@ def run_benchmark_suite(
             "mode": "single",
             "fn": rule_pt_plus_winq,
             "ls": False,
-            "llm_calls": 0,
-            "llm_tokens": 0,
         },
         {
             "id": "reevo_gt_single",
@@ -118,8 +124,14 @@ def run_benchmark_suite(
             "mode": "single",
             "fn": rule_reevo_qwen,
             "ls": False,
-            "llm_calls": 60,
-            "llm_tokens": 28400,
+        },
+        {
+            "id": "vrpagent_gt_single",
+            "category": "D1. Single-Pass LLM Rule",
+            "name": "VRPAgent-Ensemble Priority (Single-Pass GT)",
+            "mode": "single",
+            "fn": rule_vrpagent_ensemble,
+            "ls": False,
         },
         {
             "id": "mwkr_cpls_single",
@@ -128,8 +140,6 @@ def run_benchmark_suite(
             "mode": "single",
             "fn": rule_mwkr,
             "ls": True,
-            "llm_calls": 0,
-            "llm_tokens": 0,
         },
         {
             "id": "multistart_mwkr_cpls",
@@ -138,8 +148,6 @@ def run_benchmark_suite(
             "mode": "multistart",
             "fn": rule_mwkr,
             "ls": True,
-            "llm_calls": 0,
-            "llm_tokens": 0,
         },
         {
             "id": "multistart_reevo_cpls",
@@ -148,8 +156,14 @@ def run_benchmark_suite(
             "mode": "multistart",
             "fn": rule_reevo_qwen,
             "ls": True,
-            "llm_calls": 60,
-            "llm_tokens": 28400,
+        },
+        {
+            "id": "multistart_vrpagent_cpls",
+            "category": "D2. Proposed Hybrid (Full)",
+            "name": f"Multi-Start GT (VRPAgent-Ensemble, K={n_starts}) + CP-LS",
+            "mode": "multistart",
+            "fn": rule_vrpagent_ensemble,
+            "ls": True,
         },
         {
             "id": "ablation_zeroshot_cpls",
@@ -158,8 +172,6 @@ def run_benchmark_suite(
             "mode": "multistart",
             "fn": rule_ablation_zero_shot,
             "ls": True,
-            "llm_calls": 10,
-            "llm_tokens": 4200,
         },
         {
             "id": "ablation_nowinq_cpls",
@@ -168,8 +180,6 @@ def run_benchmark_suite(
             "mode": "multistart",
             "fn": rule_ablation_no_winq,
             "ls": True,
-            "llm_calls": 60,
-            "llm_tokens": 28400,
         },
         {
             "id": "ablation_reevo_nols",
@@ -178,8 +188,6 @@ def run_benchmark_suite(
             "mode": "multistart",
             "fn": rule_reevo_qwen,
             "ls": False,
-            "llm_calls": 60,
-            "llm_tokens": 28400,
         },
     ]
 
@@ -191,8 +199,6 @@ def run_benchmark_suite(
             "mode": "multistart",
             "fn": custom_fn,
             "ls": True,
-            "llm_calls": 0,
-            "llm_tokens": 0,
         })
 
     rows: List[Dict[str, Any]] = []
@@ -216,6 +222,7 @@ def run_benchmark_suite(
         all_evals: List[int] = []
         feasible_count = 0
         total_runs = 0
+        code_lines = _measure_code_lines(spec["fn"])
 
         for inst in instances:
             ref = inst.optimum or inst.lower_bound
@@ -287,8 +294,8 @@ def run_benchmark_suite(
             "best_gap": round(best_mean_gap, 2),
             "mean_runtime_ms": round(statistics.mean(all_runtimes), 2),
             "mean_evaluations": round(statistics.mean(all_evals), 1),
-            "llm_calls": spec["llm_calls"],
-            "llm_tokens": spec["llm_tokens"],
+            "code_lines": code_lines,
+            "vrpagent_fitness": round(mean_gap + 0.02 * code_lines, 2),
             "feasibility_rate": round(100.0 * feasible_count / float(max(1, total_runs)), 1),
         })
 

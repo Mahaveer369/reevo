@@ -45,12 +45,12 @@
     data.summary_rows.forEach((row) => {
       byId[row.id] = row;
       const tr = document.createElement("tr");
-      if (row.id === "multistart_reevo_cpls" || row.id === "custom_user_cpls") {
+      if (row.id === "multistart_reevo_cpls" || row.id === "multistart_vrpagent_cpls" || row.id === "custom_user_cpls") {
         tr.className = "row-highlight";
-      } else if (row.id === "reevo_gt_single") {
+      } else if (row.id === "reevo_gt_single" || row.id === "vrpagent_gt_single") {
         tr.className = "row-subhighlight";
       }
-      const llmInfo = row.llm_calls > 0 ? `${row.llm_calls} / ${(row.llm_tokens / 1000).toFixed(1)}k` : "0 / 0";
+      const codeInfo = `${row.code_lines || 0} LOC / ${(row.vrpagent_fitness || row.mean_gap).toFixed(2)}`;
       tr.innerHTML = `
         <td>${row.category}</td>
         <td>${row.name}</td>
@@ -60,7 +60,7 @@
         <td class="num">${row.best_gap.toFixed(2)}%</td>
         <td class="num">${row.mean_runtime_ms.toFixed(2)}</td>
         <td class="num">${row.mean_evaluations.toFixed(0)}</td>
-        <td class="num">${llmInfo}</td>
+        <td class="num">${codeInfo}</td>
         <td class="num"><span class="badge-ok">${row.feasibility_rate.toFixed(0)}% OK</span></td>
       `;
       tbody.appendChild(tr);

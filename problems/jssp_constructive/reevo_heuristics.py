@@ -69,6 +69,39 @@ def rule_ablation_zero_shot(features: Dict[str, list]) -> List[float]:
     return [1.20 * m - 0.15 * w - 0.12 * p for p, m, w in zip(pt, mwkr, winq)]
 
 
+def rule_vrpagent_ensemble(features: Dict[str, list]) -> List[float]:
+    """
+    VRPAgent-Inspired Multi-Regime Ensemble Priority Operator (Hottung, Berto, Hua, Ye, Park, Tierney, TMLR 2026).
+    Switches/blends between three complementary scoring regimes based on conflict-set congestion & schedule progress:
+      - Regime 1 (Early / Uncongested): Heavy global work-remaining (MWKR) + operation count (MOR) + slack urgency.
+      - Regime 2 (High Downstream Queue Congestion): Strong WINQ lookahead relief + non-delay bottleneck protection.
+      - Regime 3 (Late Tail / Tight Finishing): Aggressive non-delay + SPT machine release speed.
+    """
+    pt = features["pt_norm"]
+    mwkr = features["rem_work_norm"]
+    mor = features["rem_ops_norm"]
+    winq = features["winq_norm"]
+    slack = features["slack_norm"]
+    es = features["earliest_start_norm"]
+    prog = float(features.get("progress", 0.5))
+    mean_winq = sum(winq) / float(len(winq)) if winq else 0.0
+
+    scores: List[float] = []
+    for p, m, o, w, s, e in zip(pt, mwkr, mor, winq, slack, es):
+        r1_tail = 1.75 * m + 0.45 * o - 0.90 * s - 0.75 * e
+        r2_congestion = 1.40 * m + 0.30 * o - 1.15 * e - 0.38 * w - 0.10 * p
+        r3_finishing = 1.45 * m - 1.35 * e - 0.22 * p - 0.70 * s - 0.15 * w
+        if mean_winq > 0.45:
+            score = 0.35 * r1_tail + 0.50 * r2_congestion + 0.15 * r3_finishing
+        elif prog < 0.65:
+            score = 0.60 * r1_tail + 0.25 * r2_congestion + 0.15 * r3_finishing
+        else:
+            score = 0.25 * r1_tail + 0.20 * r2_congestion + 0.55 * r3_finishing
+        scores.append(score)
+    return scores
+
+
+
 def compile_custom_priority_code(code_str: str) -> Callable[[Dict[str, list]], List[float]]:
     """
     Safely compile user- or LLM-provided Python source defining `priority*` into a callable PriorityFunc.
