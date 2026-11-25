@@ -495,6 +495,298 @@ body {
   color: #92400e;
 }
 
+.kpi-value,
+.data-table td.num,
+.data-table th.num,
+.schedule-summary-bar {
+  font-variant-numeric: tabular-nums;
+}
+
+.bap-legend-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 12px;
+  background: #f8fafc;
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  margin-bottom: 12px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.bap-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bap-swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.viva-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.viva-card {
+  border: 1px solid var(--border-color);
+  border-left: 4px solid #1d4ed8;
+  border-radius: 6px;
+  background: #ffffff;
+  padding: 14px 16px;
+}
+
+.viva-q {
+  margin: 0 0 6px 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.viva-a {
+  margin: 0;
+  font-size: 13px;
+  color: #334155;
+  line-height: 1.55;
+}
+
+/* Tab 6: 5th-Grade Visual Story & Flowchart Styles */
+.story-hero {
+  background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
+  border: 1px solid #bfdbfe;
+  border-left: 5px solid #1d4ed8;
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin-bottom: 18px;
+}
+
+.story-hero-title {
+  margin: 0 0 6px 0;
+  font-size: 19px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.story-hero-sub {
+  margin: 0;
+  font-size: 14px;
+  color: #334155;
+  line-height: 1.6;
+}
+
+.story-chapter-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.story-step-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  height: 30px;
+  padding: 0 8px;
+  border-radius: 6px;
+  background: #1d4ed8;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  flex-shrink: 0;
+}
+
+.story-step-badge.green {
+  background: #059669;
+}
+
+.story-step-badge.amber {
+  background: #d97706;
+}
+
+.story-step-badge.slate {
+  background: #0f172a;
+}
+
+.svg-diagram-box {
+  width: 100%;
+  background: #f8fafc;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 12px;
+  margin: 12px 0;
+  overflow-x: auto;
+}
+
+.svg-diagram-box svg {
+  display: block;
+  width: 100%;
+  min-width: 760px;
+  height: auto;
+}
+
+.lego-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.lego-brick {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-top: 4px solid #1d4ed8;
+  border-radius: 6px;
+  padding: 12px 14px;
+}
+
+.lego-brick.b1 { border-top-color: #475569; }
+.lego-brick.b2 { border-top-color: #2563eb; }
+.lego-brick.b3 { border-top-color: #7c3aed; }
+.lego-brick.b4 { border-top-color: #0891b2; }
+.lego-brick.b5 { border-top-color: #d97706; }
+.lego-brick.b6 { border-top-color: #059669; }
+
+.lego-brick-tag {
+  font-size: 11px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  color: #475569;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.lego-brick-title {
+  margin: 0 0 6px 0;
+  font-size: 14px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.lego-brick-copy {
+  margin: 0;
+  font-size: 13px;
+  color: #334155;
+  line-height: 1.5;
+}
+
+.lego-glue-banner {
+  margin-top: 12px;
+  background: #eff6ff;
+  border: 1px dashed #2563eb;
+  border-radius: 8px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.lego-glue-text {
+  font-size: 13.5px;
+  color: #1e3a8a;
+  line-height: 1.5;
+}
+
+.status-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.status-mini-card {
+  border-radius: 6px;
+  padding: 12px 14px;
+  border: 1px solid var(--border-color);
+  background: #ffffff;
+}
+
+.status-mini-card.locked {
+  border-left: 4px solid #dc2626;
+  background: #fef2f2;
+}
+
+.status-mini-card.movable {
+  border-left: 4px solid #2563eb;
+  background: #eff6ff;
+}
+
+.status-mini-card.surprise {
+  border-left: 4px solid #d97706;
+  background: #fffbeb;
+}
+
+.status-mini-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 4px 0;
+}
+
+.status-mini-copy {
+  font-size: 12.5px;
+  color: #334155;
+  margin: 0;
+  line-height: 1.45;
+}
+
+.proof-stamp-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.proof-stamp {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-top: 4px solid #059669;
+  border-radius: 6px;
+  padding: 12px;
+}
+
+.proof-stamp-badge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 800;
+  color: #047857;
+  margin-bottom: 4px;
+}
+
+.proof-stamp-title {
+  margin: 0 0 6px 0;
+  font-size: 13px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.proof-stamp-copy {
+  margin: 0;
+  font-size: 12px;
+  color: #334155;
+  line-height: 1.45;
+}
+
+@media (max-width: 1024px) {
+  .lego-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .proof-stamp-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 768px) {
   .top-header {
     padding: 12px 14px 0 14px;
@@ -505,4 +797,10 @@ body {
   .panel-card {
     padding: 14px;
   }
+  .lego-grid,
+  .status-mini-grid,
+  .proof-stamp-grid {
+    grid-template-columns: 1fr;
+  }
 }
+

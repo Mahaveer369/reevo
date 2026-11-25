@@ -1,0 +1,8 @@
+solver,solver_label,solver_paper,category,instances_tested,best_or_tied_wins,mean_objective,mean_optimality_gap_pct,mean_improvement_vs_fifp_pct,mean_waiting_time_h,mean_berth_deviation_m,mean_runtime_ms
+fifp_greedy,FIFP / FCFS Greedy Baseline,Chen et al. (2026) / Zou et al. (2025) Baseline,Constructive Rule,7,0/7,7873.18,1235.81,0.0,621.07,5694.3,43.61
+grasp_lee2010,GRASP_2 + Prop. 3.1 + Exchange,"Lee, Chen & Cao (Transp. Res. E 2010) & Guan & Cheung (2004)",Multi-Start Metaheuristic,7,0/7,4554.16,683.69,32.65,557.36,1117.9,659.38
+hma_xu2025,HMA (3-Stage QC Decoder + TGLS),"Xu, Huang, Zhao, Gong & Liu (IEEE TITS 2025)",Evolutionary Memetic,7,1/7,4486.08,672.85,33.97,560.71,1145.0,871.25
+i2hcso_zou2025,I2HCSO (Hierarchical Swarm + Repair),"Zou, Xu, Dai, Song & Luo (IEEE TETCI 2025)",Swarm Intelligence,7,2/7,4506.7,673.77,33.76,547.29,1255.7,1143.72
+alns_martin2024,ALNS (Shaw/Cost-Time + Regret-2),"Martin-Iradi, Pacino & Ropke (EJOR 2024)",Large Neighborhood Search,7,1/7,4436.58,664.97,32.87,529.07,1322.1,937.42
+reevo_ub_bb_chen2026,UB-BB (Initial-Bound Branch & Bound),Chen et al. (Ocean Engineering 2026),Hybrid Exact + Heuristic,7,0/7,4721.2,705.87,31.38,569.64,1229.3,658.19
+reevo_vrpagent_bap,ReEvo-VRPAgent Unified BAP (Ours),Proposed Synthesis (ReEvo + VRPAgent + 3-Stage QC + UB-BB),LLM-Guided Hyper-Heuristic,7,3/7,4400.26,652.85,36.12,538.64,942.1,2568.33

@@ -1,0 +1,13 @@
+instance,strategy,total_objective,total_waiting_time,total_service_time,total_berth_deviation,makespan,optimality_gap_pct,avg_replan_berth_shift_m,num_triggers,runtime_ms,feasible
+chen26_table10,NR-FIFP,226.89,26.5,107.0,1770.0,44.0,92.133,0.0,1,5.043,True
+chen26_table10,TDBB-6h,170.93,28.5,92.0,390.0,36.0,44.746,0.0,3,44.344,True
+chen26_table10,EDBB-Chen26,167.25,25.5,91.5,355.0,37.0,41.629,17.5,6,49.139,True
+chen26_table10,ReEvo-ED-UB-BB,167.25,25.5,91.5,355.0,37.0,41.629,17.5,6,85.119,True
+chen26_n20,NR-FIFP,1466.3425,521.0,322.0,4570.0,104.0,284.882,0.0,1,17.277,True
+chen26_n20,TDBB-6h,1086.8238,428.5,263.5,820.0,97.5,185.267,41.75,4,462.166,True
+chen26_n20,EDBB-Chen26,1103.4937,439.5,263.5,820.0,97.0,189.642,18.19,7,711.787,True
+chen26_n20,ReEvo-ED-UB-BB,1103.4937,439.5,263.5,820.0,97.0,189.642,13.51,7,1059.633,True
+xu25_bacap_20,NR-FIFP,6530.1,178.0,167.0,3490.0,48.0,1683.206,0.0,1,34.481,True
+xu25_bacap_20,TDBB-6h,3115.8,211.0,143.0,140.0,50.0,750.847,0.0,4,776.272,True
+xu25_bacap_20,EDBB-Chen26,3503.2,227.0,143.0,330.0,49.0,856.636,6.13,6,1084.915,True
+xu25_bacap_20,ReEvo-ED-UB-BB,3170.4,199.0,145.0,210.0,52.0,765.756,2.0,6,1344.016,True
